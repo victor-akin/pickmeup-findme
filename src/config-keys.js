@@ -1,5 +1,5 @@
 const config = {}
 
-config.key = "AIzaSyBKrMM1vKp61SKl3-AAB0p2WZhN07JPwI8"
+config.key = "FAKE_KEY"
 
 export default config

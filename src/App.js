@@ -18,7 +18,7 @@ function App() {
       }
       
       let fetchLocation = async () => {
-        await fetch("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBKrMM1vKp61SKl3-AAB0p2WZhN07JPwI8", params)
+        await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=${config.key}`, params)
         .then(res => {
          res.json().then(data => {setCoordinates({lat: data.location.lat, lng: data.location.lng})})    
         })
@@ -39,11 +39,10 @@ function App() {
   }
 
   const getLocationAddress = async () => {
-    await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat},${coords.lng}&key=AIzaSyBKrMM1vKp61SKl3-AAB0p2WZhN07JPwI8`)
+    await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat},${coords.lng}&key=${config.key}`)
     .then(res => {
       res.json().then(data => {
         setLocationText({type: data.results[0].types[0], address: data.results[0].formatted_address})
-        console.log(data)
       })
     })
     .catch(err => {
