@@ -27,7 +27,6 @@ function App() {
         })
       }
       fetchLocation()
-
     }
     getCoordinates()
   }, [coords])
@@ -36,7 +35,6 @@ function App() {
     setShowMarker(true)
     mapApi.map.setCenter({lat: coords.lat, lng: coords.lng})
     mapApi.map.setZoom(10)
-
     getLocationAddress()
   }
 
